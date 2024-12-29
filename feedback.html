@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Fungsi untuk menangani pengiriman feedback (misalnya menggunakan AJAX)
+        function submitFeedback(event) {
+            event.preventDefault();  // Mencegah form submit default
+
+            // Ambil data dari formulir
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const feedback = document.getElementById('feedback').value;
+
+            if (name && email && feedback) {
+                // Kirim data ke server menggunakan fetch atau AJAX (misalnya POST ke server)
+                // Misalnya menggunakan fetch (sederhana)
+                fetch('submit-feedback.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `name=${name}&email=${email}&feedback=${feedback}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Terima kasih atas feedback Anda!");
+                        // Reset form setelah sukses
+                        document.getElementById('feedback-form').reset();
+                    } else {
+                        alert("Gagal mengirim feedback. Coba lagi nanti.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Terjadi kesalahan. Silakan coba lagi.");
+                });
+            } else {
+                alert("Semua kolom harus diisi!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Berikan Feedback Anda</h1>
+    </header>
+
+    <div class="form-container">
+        <form id="feedback-form" onsubmit="submitFeedback(event)">
+            <label for="name">Nama</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="feedback">Feedback/Saran</label>
+            <textarea id="feedback" name="feedback" rows="5" required placeholder="Tulis feedback atau saran Anda di sini..."></textarea>
+
+            <button type="submit">Kirim Feedback</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 Website Donasi</p>
+    </footer>
+</body>
+</html>
