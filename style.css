@@ -338,3 +338,25 @@ footer {
     background-color: #f9f9f9;
     margin: 0;
 }
+
+/* donasi non tunai */
+select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+}
+
+/*kaklulator*/
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}

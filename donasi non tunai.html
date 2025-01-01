@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi Non-Tunai</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Donasi Non-Tunai</h1>
+        <p>Donasikan barang atau jasa untuk membantu mereka yang membutuhkan.</p>
+    </header>
+
+    <div class="form-container">
+        <form action="" method="post">
+            <label for="donation-type">Jenis Donasi</label>
+            <select id="donation-type" name="donation-type" required>
+                <option value="barang">Barang</option>
+                <option value="jasa">Jasa</option>
+            </select>
+
+            <label for="description">Deskripsi Donasi</label>
+            <textarea id="description" name="description" rows="4" required placeholder="Deskripsi barang atau jasa yang ingin Anda donasikan."></textarea>
+
+            <label for="pickup">Alamat Pengambilan (opsional)</label>
+            <input type="text" id="pickup" name="pickup" placeholder="Masukkan alamat pengambilan barang (jika perlu)">
+
+            <button type="submit">Kirim Donasi</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 Website Donasi</p>
+    </footer>
+</body>
+</html>
